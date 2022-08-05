@@ -1,0 +1,30 @@
+<h3><u><%= @workout.name %></u></h3>
+<p> Created by <%= @workout.trainer %></p>
+
+<span class="badge rounded-pill text-bg-primary">Warmup</span>
+<p>
+    <%= @workout.warmup%>
+</p>
+
+<span class="badge rounded-pill text-bg-success">Workout</span>
+<p>
+    <%= @workout.body %>
+</p>
+
+<span class="badge rounded-pill text-bg-info">Finisher</span>
+<p>
+    <%= @workout.finish %>
+</p>
+
+<strong>Leaderboard</strong><br/>
+<%= render 'attempts/attempt', workout: @workout %>
+<%# render(@workout.attempts.order('minutes','seconds'))  || 'No times have been submitted to leaderboard' %>
+
+<br/>
+<strong>Enter your time</strong>
+<%= render 'attempts/form' %>
+
+
+
+<br/>
+<%= link_to "Home", workouts_path, class: "btn btn-outline-secondary btn-sm" %> | <%= link_to "Edit", edit_workout_path(@workout), class: "btn btn-outline-secondary btn-sm" %>

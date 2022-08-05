@@ -1,0 +1,15 @@
+<%= form_with model: [@workout, @workout.attempts.build] do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+
+<%= f.label :minutes %>
+<%= f.number_field :minutes, in: 1..60 %>
+
+<%= f.label :seconds %>
+<%= f.number_field :seconds, in: 1..60 %>
+
+<%= f.submit %>
+
+
+<% end %>
+

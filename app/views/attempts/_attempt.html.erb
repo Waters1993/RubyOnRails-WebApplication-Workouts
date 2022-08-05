@@ -1,0 +1,39 @@
+
+<% if false %>
+<p><%= attempt.name %> completed this workout in <%= attempt.minutes %> minutes and <%= attempt.seconds %> seconds on <%= attempt.created_at.strftime("%d-%B-%Y") %>. |
+<%= link_to "Delete attempt", [attempt.workout, attempt], data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+} %></p>
+<% end %>
+
+<% if workout.attempts.any? %>
+    <table class="table table-bordered table-striped">
+        <thead class="table-info">
+            <tr>
+                <td>Name</td>
+                <td>Minutes</td>
+                <td>Seconds</td>
+                <td>Date</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @workout.attempts.order(:minutes, :seconds).each do |attempt| %>
+            <tr>
+                <td><%= attempt.name %></td>
+                <td><%= attempt.minutes %></td>
+                <td><%= attempt.seconds %></td>
+                <td><%= attempt.created_at.strftime("%d-%B-%Y") %></td>
+                <td><%= link_to "Delete", [attempt.workout, attempt], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                } %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+<% else %>
+No times have been submitted to the leaderboard for this workout.
+<% end %>

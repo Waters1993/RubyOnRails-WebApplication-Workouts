@@ -1,0 +1,22 @@
+<%= form_with model: workout do |f| %>
+    <p> <%= f.label :creater  %>           <%= f.text_field :trainer %></p>
+
+    <p><%= f.label :Workout_Name  %> <%= f.text_field :name %></p>
+
+    <p><%= f.label :description  %></p>
+    <p><%= f.text_area :description %></p>
+    <% workout.errors.full_messages_for(:description).each do |message| %>
+        <div class="alert alert-danger" role="alert"><%= message %></div>
+    <% end %>
+
+    <p><%= f.label :warmup  %></p>
+    <p><%= f.text_area :warmup %></p>
+
+    <p><%= f.label :workout  %></p>
+    <p><%= f.text_area :body %></p>
+
+    <p><%= f.label :finish  %></p>
+    <p><%= f.text_area :finish %></p>
+
+    <%= f.submit %>
+ <% end %>

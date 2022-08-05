@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trainer: MyString
+  name: MyString
+  description: MyText
+  warmup: MyText
+  body: MyText
+  finish: MyText
+
+two:
+  trainer: MyString
+  name: MyString
+  description: MyText
+  warmup: MyText
+  body: MyText
+  finish: MyText
