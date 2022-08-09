@@ -4,7 +4,7 @@
     <p><%= f.label :Workout_Name  %> <%= f.text_field :name %></p>
 
     <p><%= f.label :description  %></p>
-    <p><%= f.text_area :description %></p>
+    <p><%= f.text_area :description, size: "30x10"  %></p>
     <% workout.errors.full_messages_for(:description).each do |message| %>
         <div class="alert alert-danger" role="alert"><%= message %></div>
     <% end %>

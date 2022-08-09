@@ -1,4 +1,5 @@
 class Workout < ApplicationRecord
+    belongs_to :user
     has_many :attempts
     validates :trainer, presence: true
     validates :name, presence: true
