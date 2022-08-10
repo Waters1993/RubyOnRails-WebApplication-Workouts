@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root 'workouts#index'
 
+  
   get 'workouts/random', to: 'workouts#random'
 
   resources :workouts do

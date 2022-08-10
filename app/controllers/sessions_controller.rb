@@ -8,12 +8,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @current_user.id
       redirect_to workouts_path
     else
-      render action: 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
+
   def destroy
     session[:user_id] = @current_user = nil
-    #redirect_to new_session_path 
+    redirect_to workouts_path
+
   end
 end
