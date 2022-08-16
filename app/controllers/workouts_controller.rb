@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController
-
+before_action :require_user_logged_in!
+    
     def random
         @workout = Workout.order('RANDOM()').first
         render 'workouts/show', workout: @workout
@@ -45,4 +46,9 @@ class WorkoutsController < ApplicationController
     def workout_params
     params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish)
     end
+
+    def authenticate_user
+        return @current_user
+    end
+
 end

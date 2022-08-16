@@ -16,23 +16,6 @@
   <body>
     <%= render 'layouts/nav' %>
     <br/>
-      <div id="login_logout" class="container">
-          
-          <% if @current_user %>
-            Logged in as:
-            <%= @current_user.name %>
-            <em><%= link_to "(Logout)", session_path, data: {
-              turbo_method: :delete,
-              turbo_confirm: 'Are you sure?'
-            } %></em>
-            <% else %>
-            <em>Not logged in.</em>
-            <%= link_to "Login", new_session_path %>
-          <% end %>
-        </div>
-        
-        <br/>
-      
       <div class="container">
         <%= yield %>
       </div>

@@ -9,5 +9,9 @@ class ApplicationController < ActionController::Base
         @current_user = User.where(id: session[:user_id]).first    
     end
 
+    def require_user_logged_in!
+        redirect_to new_session_path, alert: 'You must be signed in' if @current_user.nil?
+    end
+
 
 end
