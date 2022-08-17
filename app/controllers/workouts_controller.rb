@@ -44,7 +44,7 @@ before_action :require_user_logged_in!
 
     private
     def workout_params
-    params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish)
+    params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish, :user_id)
     end
 
     def authenticate_user
