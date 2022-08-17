@@ -1,6 +1,6 @@
 class WorkoutsController < ApplicationController
 before_action :require_user_logged_in!
-    
+
     def random
         @workout = Workout.order('RANDOM()').first
         render 'workouts/show', workout: @workout
@@ -11,7 +11,12 @@ before_action :require_user_logged_in!
     end
 
     def show
-        @workout = Workout.find(params[:id])
+        if @current_user.workouts.find_by_id(params[:id])
+            @workout = @current_user.workouts.find_by_id(params[:id])
+        else
+            flash[:error] = "You don't have access to that item or it doesn't exist"
+            redirect_to workouts_path
+        end
     end
 
     def new
@@ -47,8 +52,8 @@ before_action :require_user_logged_in!
     params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish, :user_id)
     end
 
-    def authenticate_user
-        return @current_user
-    end
+
+
+    
 
 end

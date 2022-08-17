@@ -9,7 +9,7 @@ class UsersController < ApplicationController
           flash[:success] = "user successfully created"
           redirect_to new_session_path
         else
-          #flash[:error] = "Something went wrong"
+          flash[:error] = "Something went wrong"
           render :new, status: :unprocessable_entity
         end
     end
