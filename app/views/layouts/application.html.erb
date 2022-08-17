@@ -15,8 +15,14 @@
 
   <body>
     <%= render 'layouts/nav' %>
-    <br/>   
+    <br/> 
+
       <div class="container">
+        <% if @current_user %>
+          <p class="text-center">User No. <%= session[:user_id] %></p>
+        <% else %> 
+          <p>No user currently logged in</p>
+        <% end %>
         <%= yield %>
       </div>
     

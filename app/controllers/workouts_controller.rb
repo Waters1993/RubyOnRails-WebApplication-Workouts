@@ -7,7 +7,7 @@ before_action :require_user_logged_in!
     end
 
     def index
-        @workouts = Workout.all
+        @workouts = Workout.where("user_id = ?", session[:user_id])
     end
 
     def show

@@ -18,5 +18,9 @@
     <p><%= f.label :finish  %></p>
     <p><%= f.text_area :finish %></p>
 
+    <div class="field form-group">
+        <%= f.number_field :user_id, id: :workout_user_id, class:"form-control", value: @current_user.id, type: :hidden %>
+    </div><br/>
+
     <%= f.submit %>
  <% end %>
