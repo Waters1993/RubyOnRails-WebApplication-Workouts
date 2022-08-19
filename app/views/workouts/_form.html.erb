@@ -1,26 +1,42 @@
+<div id="myLogin">
+
+
 <%= form_with model: workout do |f| %>
-    <p> <%= f.label :creater  %>           <%= f.text_field :trainer %></p>
+    
+    <div class="form-group">
+        <%= f.text_field :trainer, class:"form-control", placeholder: "Your Name"  %>
+    </div>      
+    
+    <div class="form-group">
+        <%= f.text_field :name, class:"form-control", placeholder: "Workout Name"  %>
+    </div>   
+  
+    <div class="form-group">
+        <%= f.text_field :description, class:"form-control", placeholder: "Workout Description"  %>
+    </div>   
+    
+   <div class="input-group">
+        <span class="input-group-text">Warmup</span>
+        <%= f.text_area :warmup, class: "form-control" %>
+   </div>
 
-    <p><%= f.label :Workout_Name  %> <%= f.text_field :name %></p>
 
-    <p><%= f.label :description  %></p>
-    <p><%= f.text_area :description, size: "30x10"  %></p>
-    <% workout.errors.full_messages_for(:description).each do |message| %>
-        <div class="alert alert-danger" role="alert"><%= message %></div>
-    <% end %>
-
-    <p><%= f.label :warmup  %></p>
-    <p><%= f.text_area :warmup %></p>
-
-    <p><%= f.label :workout  %></p>
-    <p><%= f.text_area :body %></p>
-
-    <p><%= f.label :finish  %></p>
-    <p><%= f.text_area :finish %></p>
+   <div class="input-group">
+        <span class="input-group-text">Workout</span>
+        <%= f.text_area :body, class: "form-control" %>
+   </div>
+   <div class="input-group">
+        <span class="input-group-text">Finisher</span>
+        <%= f.text_area :finish, class: "form-control" %>
+   </div>
+    
+   
 
     <div class="field form-group">
         <%= f.number_field :user_id, id: :workout_user_id, class:"form-control", value: @current_user.id, type: :hidden %>
     </div><br/>
 
-    <%= f.submit %>
+    <%= f.submit "Create", class: "btn btn-success" %>
  <% end %>
+
+ </div>

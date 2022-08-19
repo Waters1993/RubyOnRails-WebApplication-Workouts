@@ -19,11 +19,22 @@
     background-color: powderblue;
   }
   
-  h1   {
-    color: chartreuse;
-  }
   
-  #login_logout {
-    color: #999;
-    font-size: smaller;
+  .form-group {
+    padding-bottom: 10px;
   }
+
+  .input-group {
+    padding-bottom: 10px;
+  }
+
+#myLogin  {
+  padding-left: 25%;
+  padding-right: 25%;
+  text-align: center;
+  
+}
+
+.container  {
+  text-align: center;
+}

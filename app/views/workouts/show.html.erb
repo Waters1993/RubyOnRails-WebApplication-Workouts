@@ -1,7 +1,20 @@
-<h3><u><%= @workout.name %></u></h3>
-<p> Created by <%= @workout.trainer %></p>
+<h1><%= @workout.name.capitalize %></h1>
+<p> Workout created by: <%= @workout.trainer.capitalize %></p>
 
 <span class="badge rounded-pill text-bg-primary">Warmup</span>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      Warmup
+    </div>
+    <div class="col">
+      <%= @workout.warmup%>
+    </div>
+    
+  </div>
+</div>
+
 <p>
     <%= @workout.warmup%>
 </p>

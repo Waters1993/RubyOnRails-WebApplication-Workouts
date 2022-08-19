@@ -16,10 +16,10 @@
   <body>
     <%= render 'layouts/nav' %>
     <br/> 
-      <div class="container">
+      <div id="myLogin">
           <p><center>
           <% flash.each do |type, msg| %>
-            <div class="alert alert-info">
+            <div class="alert alert-warning">
               <%= msg %>
             </div>
           <% end %>
