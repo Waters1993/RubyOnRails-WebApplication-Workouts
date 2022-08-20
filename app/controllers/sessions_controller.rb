@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @current_user.id
       redirect_to workouts_path
     else
+      flash[:warning] = "You need to register an account before logging in"
       render :new, status: :unprocessable_entity
     end
   end
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = @current_user = nil
+    flash[:success] = "Successfully logged out"
     redirect_to workouts_path
 
   end
