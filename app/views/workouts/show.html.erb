@@ -2,9 +2,30 @@
 
 <p> Workout created by: <%= @workout.trainer.capitalize %></p>
 
-<%= @workout.warmup %><br/>
-<%= @workout.body %><br/>
-<%= @workout.finish %><br/>
+<div id="show">
+    <div class="card">
+        <h5 class="card-header">Warmup</h5>
+        <div class="card-body">
+            <p class="card-text" id="body"><%= @workout.warmup %></p>
+        </div>
+    </div>
+
+    <div class="card mt-3">
+    <h5 class="card-header">Workout</h5>
+    <div class="card-body">
+        <p class="card-text" id="body"><%= @workout.body %></p>
+    </div>
+    </div>
+
+    <div class="card  mt-3">
+    <h5 class="card-header">Finisher</h5>
+    <div class="card-body">
+        <p class="card-text" id="body"><%= @workout.finish %></p>
+    </div>
+    </div>
+
+</div>
+
 
 <strong>Leaderboard</strong><br/>
 <%= render 'attempts/attempt', workout: @workout %>

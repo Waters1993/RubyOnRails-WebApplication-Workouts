@@ -4,7 +4,7 @@
 <%= form_with model: workout do |f| %>
     
     <div class="form-group">
-        <%= f.text_field :trainer, class:"form-control", placeholder: "Your Name"  %>
+        <%= f.text_field :trainer, class:"form-control", value: @current_user.name  %>
     </div>      
     
     <div class="form-group">
