@@ -1,16 +1,14 @@
 <div  id="myLogin">
-
-<%= form_tag session_path do %>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    <div class="form-group">
-        <%= email_field_tag :email,nil, class:"form-control", placeholder: "Email" %>
-    </div>
     
-    <div class="form-group">
-        <%= password_field_tag :password, nil, class:"form-control", placeholder: "Password"  %>
-    </div>
-    
-    
-    <%= submit_tag 'login', class: "btn btn-dark" %>
+    <%= form_tag session_path do %>
+        <div class="form-group">
+            <%= email_field_tag :email,nil, class:"form-control", placeholder: "Email" %>
+        </div>
+        <div class="form-group">
+            <%= password_field_tag :password, nil, class:"form-control", placeholder: "Password"  %>
+        </div>
+        <%= submit_tag 'login', class: "btn btn-secondary" %><br/><br/>
+        <hr>
+        <%= link_to "Create new account", new_user_path , class: "btn btn-success" %>
     <% end %>
 </div>
