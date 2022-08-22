@@ -6,7 +6,10 @@
 
 # Ignore bundler config.
 /.bundle
+
+# Shell scrip to commit changes to github and push changes to heroku
 productionpush.sh
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-*
