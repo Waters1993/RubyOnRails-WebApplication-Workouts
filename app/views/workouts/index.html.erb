@@ -1,7 +1,4 @@
-
-
 <h1>Choose your Workout</h1>
-
 <table class="table table-striped table-bordered">
     <thead class="table-dark">
         <tr>
@@ -12,13 +9,13 @@
         </tr>
     </thead>
     <tbody class="table-group-divider">
-    <% @workouts.each do |workout| %>
-    <tr>
-        <td><%= workout.trainer %></td>
-        <td><%= workout.name %></td>
-        <td><%= workout.description %></td>
-        <td><%= link_to "Show", workout_path(workout) %>
-    </tr>
-    <% end %>
+        <% @workouts.each do |workout| %>
+            <tr>
+                <td><%= workout.trainer %></td>
+                <td><%= workout.name %></td>
+                <td><%= workout.description %></td>
+                <td><%= link_to "Show", workout_path(workout) %>
+            </tr>
+        <% end %>
     </tbody>
 </table>
