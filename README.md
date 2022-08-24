@@ -12,7 +12,7 @@
 - [README](#readme)
 
 ## Overview
-![screenshot](https://raw.github.com/Waters1993/Rails_App/tree/main/app/assets/images/readme.JPG)
+![screenshot](https://github.com/Waters1993/Rails_App/blob/main/app/assets/images/readme.JPG?raw=true)
 <!-- TODO: Add a screenshot of the live project.
     1. Link to a 'live demo.'
     2. Describe your overall experience in a couple of sentences.
