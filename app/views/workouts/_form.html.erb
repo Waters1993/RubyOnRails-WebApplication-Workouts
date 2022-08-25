@@ -6,15 +6,7 @@
     <div class="form-group">
         <%= f.text_field :trainer, class:"form-control", value: @current_user.name  %>
     </div>      
-    
-    <div class="form-group">
-        <%= f.text_field :name, class:"form-control", placeholder: "Workout Name"  %>
-    </div>   
-  
-    <div class="form-group">
-        <%= f.text_field :description, class:"form-control", placeholder: "Workout Description"  %>
-    </div>   
-    
+      
    <div class="input-group">
         <span class="input-group-text">Warmup</span>
         <%= f.text_area :warmup, class: "form-control" %>
@@ -34,7 +26,14 @@
 
     <div class="field form-group">
         <%= f.number_field :user_id, id: :workout_user_id, class:"form-control", value: @current_user.id, type: :hidden %>
-    </div><br/>
+    </div>
+    
+    <p>
+     <%= f.label :status %><br>
+     <%= f.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+     </p>
+    
+    <br/>
 
     <%= f.submit "Create", class: "btn btn-success" %>
  <% end %>

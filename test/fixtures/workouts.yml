@@ -2,16 +2,12 @@
 
 one:
   trainer: MyString
-  name: MyString
-  description: MyText
   warmup: MyText
   body: MyText
   finish: MyText
 
 two:
   trainer: MyString
-  name: MyString
-  description: MyText
   warmup: MyText
   body: MyText
   finish: MyText

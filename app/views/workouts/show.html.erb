@@ -1,6 +1,5 @@
-<h1><%= @workout.name.capitalize %></h1>
 
-<p> Workout created by: <%= @workout.trainer.capitalize %></p>
+<h3> Workout created by: <%= @workout.trainer.capitalize %></h3>
 
 <div id="show">
     <div class="card">
@@ -38,4 +37,8 @@
 
 
 <br/>
-<%= link_to "Home", workouts_path, class: "btn btn-outline-secondary btn-sm" %> | <%= link_to "Edit", edit_workout_path(@workout), class: "btn btn-outline-secondary btn-sm" %>
+<%= link_to "Home", workouts_path, class: "btn btn-outline-secondary btn-sm" %> | <%= link_to "Edit", edit_workout_path(@workout), class: "btn btn-outline-secondary btn-sm" %> |
+<%= link_to "Delete", workout_path(@workout), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                }, class: "btn btn-outline-secondary btn-sm" %></td>

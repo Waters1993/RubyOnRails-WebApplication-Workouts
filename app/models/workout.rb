@@ -1,9 +1,9 @@
 class Workout < ApplicationRecord
+    include Visible 
+    
     belongs_to :user
-    has_many :attempts
+    has_many :attempts, dependent: :destroy
     validates :trainer, presence: true
-    validates :name, presence: true
-    validates :description, presence: true
     validates :warmup, presence: true, length: {minimum: 1}
     validates :body, presence: true, length: {minimum: 1}
     validates :finish, presence: true, length: {minimum: 1}

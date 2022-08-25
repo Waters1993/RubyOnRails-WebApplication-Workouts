@@ -1,9 +1,9 @@
 class WorkoutsController < ApplicationController
-before_action :require_user_logged_in!
+# before_action :require_user_logged_in!
 
     def random
-        @workout = Workout.order('RANDOM()').first
-        render 'workouts/show', workout: @workout
+        @workouts = Workout.all
+        # render 'workouts/random', workout: @workout
     end
 
     def index
@@ -11,12 +11,13 @@ before_action :require_user_logged_in!
     end
 
     def show
-        if @current_user.workouts.find_by_id(params[:id])
-            @workout = @current_user.workouts.find_by_id(params[:id])
-        else
-            flash[:error] = "You don't have access to that item or it doesn't exist"
-            redirect_to workouts_path
-        end
+        @workout =Workout.find_by_id(params[:id])
+        # if @current_user.workouts.find_by_id(params[:id])
+        #     @workout = @current_user.workouts.find_by_id(params[:id])
+        # else
+        #     flash[:error] = "You don't have access to that item or it doesn't exist"
+        #     redirect_to workouts_path
+        # end
     end
 
     def new
@@ -47,9 +48,15 @@ before_action :require_user_logged_in!
         end
     end
 
+    def destroy
+        @workout = Workout.find(params[:workout_id])
+        @wokout.destroy
+        redirect_to workouts_path
+    end
+
     private
     def workout_params
-    params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish, :user_id)
+    params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish, :user_id, :status)
     end
 
 
