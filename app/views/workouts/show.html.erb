@@ -1,7 +1,6 @@
-
 <h3> Workout created by: <%= @workout.trainer.capitalize %></h3>
 
-<div id="show">
+
     <div class="card">
         <h5 class="card-header">Warmup</h5>
         <div class="card-body">
@@ -23,7 +22,6 @@
     </div>
     </div>
 
-</div>
 
 
 <strong>Leaderboard</strong><br/>
@@ -32,8 +30,9 @@
 
 <br/>
 <strong>Enter your time</strong>
+<div>
 <%= render 'attempts/form' %>
-
+</div>
 
 
 <br/>

@@ -12,8 +12,7 @@
         <thead class="table-info">
             <tr>
                 <td>Name</td>
-                <td>Minutes</td>
-                <td>Seconds</td>
+                <td>Time</td>
                 <td>Date</td>
                 <td>Action</td>
             </tr>
@@ -23,8 +22,7 @@
             <% @workout.attempts.order(:minutes, :seconds).each do |attempt| %>
             <tr>
                 <td><%= attempt.name %></td>
-                <td><%= attempt.minutes %></td>
-                <td><%= attempt.seconds %></td>
+                <td><%= "00:#{attempt.minutes.to_s.rjust(2,"0")}:#{attempt.seconds.to_s.rjust(2,"0")}" %></td>
                 <td><%= attempt.created_at.strftime("%d-%B-%Y") %></td>
                 <td><%= link_to "Delete", [attempt.workout, attempt], data: {
                     turbo_method: :delete,

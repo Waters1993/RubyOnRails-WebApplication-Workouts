@@ -1,15 +1,18 @@
 <%= form_with model: [@workout, @workout.attempts.build] do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<div class="input-group">
+        <span class="input-group-text">Name</span>
+        <%= f.text_area :name, class: "form-control", style: "height: 38px;" %>
+</div>
 
-<%= f.label :minutes %>
-<%= f.number_field :minutes, in: 1..60 %>
+<div class="input-group">
+        <span class="input-group-text">Minutes</span>
+        <%= f.text_area :minutes, class: "form-control", style: "height: 38px;" %>
+        <span class="input-group-text">Seconds</span>
+        <%= f.text_area :seconds, class: "form-control", style: "height: 38px;" %>
+</div>
 
-<%= f.label :seconds %>
-<%= f.number_field :seconds, in: 1..60 %>
 
-<%= f.label :user_id %>
 <%= f.text_field :user_id, value: @current_user.id, type: :hidden %>
 
 <%= f.submit %>

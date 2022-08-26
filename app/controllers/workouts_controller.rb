@@ -48,6 +48,7 @@ class WorkoutsController < ApplicationController
         @workout = Workout.create(workout_params)
 
         if @workout.save
+            flash[:notice] = "New workout successfully created"
             redirect_to workout_path(@workout)
         else
             render :new, status: :unprocessable_entity
@@ -58,8 +59,8 @@ class WorkoutsController < ApplicationController
         if @current_user.workouts.find_by_id(params[:id])
             @workout = @current_user.workouts.find_by_id(params[:id])
         else 
-            flash[:error] = "You don't have access to that item or it doesn't exist"
-            redirect_to workouts_path
+            flash[:error] = "You don't own this workout"
+            redirect_to workout_path(Workout.find(params[:id]))
         end
     end
     # def edit
@@ -70,6 +71,7 @@ class WorkoutsController < ApplicationController
         @workout = Workout.find(params[:id])
 
         if @workout.update(workout_params)
+            flash[:notice] = "Edit Successful"
             redirect_to workout_path(@workout)
         else
             render edit:

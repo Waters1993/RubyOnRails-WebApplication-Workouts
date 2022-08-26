@@ -10,7 +10,7 @@ class AttemptsController < ApplicationController
         @workout = Workout.find(params[:workout_id])
         @comment = @workout.attempts.find(params[:id])
         @comment.destroy
-        redirect_to workout_path(@workout)
+        redirect_to workout_path(@workout), status: :see_other
     end
 
 

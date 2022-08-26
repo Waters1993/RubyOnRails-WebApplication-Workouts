@@ -1,23 +1,20 @@
-<div id="myLogin">
-
-
 <%= form_with model: workout do |f| %>
     
     <div class="form-group">
         <%= f.text_field :trainer, class:"form-control", value: @current_user.name  %>
     </div>      
       
-   <div class="input-group">
+   <div class="input-group" style="height: 100px;">
         <span class="input-group-text">Warmup</span>
         <%= f.text_area :warmup, class: "form-control" %>
    </div>
 
 
-   <div class="input-group">
+   <div class="input-group" style="height: 150px;">
         <span class="input-group-text">Workout</span>
         <%= f.text_area :body, class: "form-control" %>
    </div>
-   <div class="input-group">
+   <div class="input-group" style="height: 100px;">
         <span class="input-group-text">Finisher</span>
         <%= f.text_area :finish, class: "form-control" %>
    </div>
@@ -37,5 +34,3 @@
 
     <%= f.submit "Create", class: "btn btn-success" %>
  <% end %>
-
- </div>
