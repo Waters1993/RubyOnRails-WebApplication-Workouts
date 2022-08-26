@@ -1,9 +1,14 @@
 class WorkoutsController < ApplicationController
-# before_action :require_user_logged_in!
+    before_action :require_user_logged_in!
 
-    def random
+    def public
         @workouts = Workout.all
         # render 'workouts/random', workout: @workout
+    end
+
+    def random
+        @workout = Workout.order(Arel.sql('RANDOM()')).first
+        render 'workouts/show', workout: @workout
     end
 
     def index
@@ -11,14 +16,29 @@ class WorkoutsController < ApplicationController
     end
 
     def show
-        @workout =Workout.find_by_id(params[:id])
-        # if @current_user.workouts.find_by_id(params[:id])
-        #     @workout = @current_user.workouts.find_by_id(params[:id])
-        # else
-        #     flash[:error] = "You don't have access to that item or it doesn't exist"
-        #     redirect_to workouts_path
-        # end
+        if Workout.find(params[:id]).private?
+            unless @current_user.workouts.find_by_id(params[:id])
+                flash[:error] = "You don't have access to that item or it doesn't exist"
+                redirect_to workouts_path
+            else 
+                @workout = Workout.find_by_id(params[:id])
+            end
+        else
+            @workout = Workout.find_by_id(params[:id])
+        end
     end
+
+    
+    # def show
+    #     if @current_user.workouts.find_by_id(params[:id])
+    #         @workout = @current_user.workouts.find_by_id(params[:id])
+    #     elsif unless Workout.find(params[:id]).private?
+    #         @workout = Workout.find(params[:id])
+    #     else
+    #         flash[:error] = "You don't have access to that item or it doesn't exist"
+    #         redirect_to workouts_path
+    #     end
+    # end
 
     def new
         @workout = Workout.new
@@ -35,8 +55,16 @@ class WorkoutsController < ApplicationController
     end
 
     def edit
-        @workout = Workout.find(params[:id])
+        if @current_user.workouts.find_by_id(params[:id])
+            @workout = @current_user.workouts.find_by_id(params[:id])
+        else 
+            flash[:error] = "You don't have access to that item or it doesn't exist"
+            redirect_to workouts_path
+        end
     end
+    # def edit
+    #     @workout = Workout.find(params[:id])
+    # end
 
     def update
         @workout = Workout.find(params[:id])
@@ -49,18 +77,20 @@ class WorkoutsController < ApplicationController
     end
 
     def destroy
-        @workout = Workout.find(params[:workout_id])
-        @wokout.destroy
-        redirect_to workouts_path
+        if @current_user.workouts.find_by_id(params[:id])
+            @workout = @current_user.workouts.find_by_id(params[:id])
+            @workout.destroy
+            flash[:notice] = "Workout #{params[:id]} successfully destroyed"
+            redirect_to workouts_path, status: :see_other
+        else
+            flash[:error] = "You don't own this workout"
+            redirect_to workouts_path
+        end
     end
 
     private
     def workout_params
     params.require(:workout).permit(:trainer, :name, :description, :warmup, :body, :finish, :user_id, :status)
-    end
-
-
-
-    
+    end    
 
 end

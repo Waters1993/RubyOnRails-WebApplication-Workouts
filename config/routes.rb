@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   
   get 'workouts/random', to: 'workouts#random'
+  get 'workouts/public', to: 'workouts#public'
   get 'about', to: 'about#index'
 
   resources :workouts do

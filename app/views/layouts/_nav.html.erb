@@ -1,9 +1,12 @@
 <% # Project Navigation Bar %>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<%# <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> %>
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
   <div class="container-md">     
-    <% # Navbar Brand %>
-    <%= link_to "About", about_path, class: "navbar-brand" %>
+    
+    <%= link_to image_tag("Picture1.png", width: "60", height: "50"), about_path, class: "navbar-brand" %>
+          
+
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,13 +17,13 @@
       <% if @current_user %>
       <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <%= link_to "Workouts", workouts_path, class: "nav-link active" %>
+            <%= link_to "My Workouts", workouts_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "New", new_workout_path, class: "nav-link active" %>
+            <%= link_to "Create New", new_workout_path, class: "nav-link active" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Random", workouts_random_path, class: "nav-link active" %>
+            <%= link_to "Public Workouts", workouts_public_path, class: "nav-link active" %>
           </li>
       </ul>
       <% # Logout moved to the right of the navbar %>
