@@ -1,9 +1,15 @@
 # RoR Workouts App
 
+## TODO
+- Add url to README
+- Complete Testing Suite
+- Added error messages to forms
+- Fix form bug
+- Create a test account feature
+
 ## Table of Contents
-
-
 - [RoR Workouts App](#ror-workouts-app)
+  - [TODO](#todo)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
     - [Built With](#built-with)
@@ -13,6 +19,7 @@
     - [Random](#random)
   - [Contact](#contact)
   - [Acknowledgements](#acknowledgements)
+  - [](#)
 - [README](#readme)
 
 ## Overview
@@ -53,6 +60,8 @@ The random button in the nav bar displays a random workout from workouts you hav
 <!-- TODO: Include icons and links to your RELEVANT, PROFESSIONAL 'DEV-ORIENTED' social media. LinkedIn and dev.to are minimum. -->
 
 ## Acknowledgements
+
+## 
 
 <!-- TODO: List any blog posts, tutorials or plugins that you may have used to complete the project. Only list those that had a significant impact. Obviously, we all 'Google' stuff while working on our things, but maybe something in particular stood out as a 'major contributor' to your skill set for this project. -->
 

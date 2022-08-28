@@ -36,6 +36,10 @@
   text-align: center;
 }
 
+#about  {
+  text-align: left;
+}
+
 #myLogin  {
   padding-left: 25%;
   padding-right: 25%;

@@ -1,1 +1,16 @@
-<p>This would suffice as the about page</p>
+<div id="about">
+    <h2><strong>Workouts App</strong></h2>
+    <h5><strong>Purpose</strong></h5>
+    <p>You can use this application to create and store your own personnal workouts. Each unique workout can be created with a warmup, main workout, and a finish.
+    Every workout you create can be easily viewed and accessed from the My Workouts page. </p>
+    <h5><strong>Leaderboard</strong></h5>
+    <p>Each workout can be updated to include an attempt. Attempts are the time taken to complete the workout. The attempt form is available below each workout.
+    Each attempt is displayed on the leaderboard below the workout. The leaderboard is auto updated to show the attempts from fastest to slowest</p>
+    <h5><strong>Public Vs. Private Workouts</strong></h5>
+    <p>Each time you create a workout you have an option to decide to make it public or private. 
+    Private workouts are only available to you through the My Workouts page. Any workouts you mark as public are available to all other users in the Public Workouts page.</p>
+    <h5><strong>Public Workouts</strong></h5>
+    <p>The public workouts page displays all workouts which have been created by other users and marked as Public. Try using the random workout button to try out a workout created by another user.</p>
+</div>
+    <%= link_to "Create new account", new_user_path , class: "btn btn-success" %>
+
