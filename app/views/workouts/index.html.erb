@@ -1,16 +1,16 @@
-<h1>Workouts created by <%= @current_user.name %></h1>
+<h2>You have created <%= @workouts.count %> workouts</h2>
 <table class="table table-striped table-bordered">
     <thead class="table-dark">
         <tr>
-            <th class="align-middle">Number</th>
+            <th class="align-middle">Workout No.</th>
             <th class="align-middle">Description</th>
             <th>Full workout</td>
         </tr>
     </thead>
     <tbody class="table-group-divider">
-        <% @workouts.each do |workout| %>
+        <% @workouts.each_with_index do |workout, index| %>
             <tr>
-                <td class="align-middle"><%= workout.id %></td>
+                <td class="align-middle"><%= index+1 %></td>
                 <td id="body"><%= workout.body %></td>
                 <td class="align-middle"><%= link_to "Show", workout_path(workout) %></td>
             </tr>

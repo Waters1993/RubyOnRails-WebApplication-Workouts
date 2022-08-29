@@ -7,7 +7,7 @@ class WorkoutsController < ApplicationController
     end
 
     def random
-        @workout = Workout.order(Arel.sql('RANDOM()')).first
+        @workout = Workout.where(status: "public").order(Arel.sql('RANDOM()')).first
         render 'workouts/show', workout: @workout
     end
 

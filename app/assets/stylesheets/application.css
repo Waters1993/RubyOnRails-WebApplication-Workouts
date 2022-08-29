@@ -48,6 +48,11 @@
 
 #body {
   white-space: pre;
+  text-align: left;
+}
+
+#show {
+  white-space: pre;
 }
 
 
@@ -58,4 +63,15 @@
 }
 .input-group-text {
   width: 80px;
+}
+
+#error_explanation {
+  text-align: left;
+  color: red;
+}
+
+#logged_in_as {
+  text-align: left;
+  color: #444; 
+  font-size: 0.9em;
 }

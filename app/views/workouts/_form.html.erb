@@ -1,4 +1,5 @@
 <%= form_with model: workout do |f| %>
+    <%= render 'errors', workout: @workout %>
     
     <div class="form-group">
         <%= f.text_field :trainer, class:"form-control", value: @current_user.name  %>
@@ -6,17 +7,17 @@
       
    <div class="input-group" style="height: 100px;">
         <span class="input-group-text">Warmup</span>
-        <%= f.text_area :warmup, class: "form-control" %>
+        <%= f.text_area :warmup, class: "form-control", rows: 2%>
    </div>
 
 
-   <div class="input-group" style="height: 150px;">
+   <div class="input-group">
         <span class="input-group-text">Workout</span>
-        <%= f.text_area :body, class: "form-control" %>
+        <%= f.text_area :body, class: "form-control", rows: 5%>
    </div>
    <div class="input-group" style="height: 100px;">
         <span class="input-group-text">Finisher</span>
-        <%= f.text_area :finish, class: "form-control" %>
+        <%= f.text_area :finish, class: "form-control", rows: 3%>
    </div>
     
    

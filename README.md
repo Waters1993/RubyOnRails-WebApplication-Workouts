@@ -3,8 +3,6 @@
 ## TODO
 - Add url to README
 - Complete Testing Suite
-- Added error messages to forms
-- Fix form bug
 - Create a test account feature
 
 ## Table of Contents

@@ -18,6 +18,15 @@ class SessionsController < ApplicationController
     session[:user_id] = @current_user = nil
     flash[:success] = "Successfully logged out"
     redirect_to workouts_path
-
   end
+
+  def test
+    @current_user = User.find_by(email: "testaccount@test.com")
+    session[:user_id] = @current_user.id
+    flash[:success] = "You've logged into the test account"
+    redirect_to workouts_path
+  end
+
+
+
 end

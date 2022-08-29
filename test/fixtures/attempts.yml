@@ -5,9 +5,11 @@ one:
   minutes: 1
   seconds: 1
   workout: one
+  user: james
 
 two:
   name: MyString
   minutes: 1
   seconds: 1
   workout: two
+  user: james

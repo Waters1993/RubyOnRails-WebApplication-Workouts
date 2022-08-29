@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'workouts/public', to: 'workouts#public'
   get 'about', to: 'about#index'
 
+  get 'sessions/test', to: 'sessions#test'
+
   resources :workouts do
     resources :attempts
   end

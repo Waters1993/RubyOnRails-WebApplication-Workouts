@@ -47,12 +47,11 @@ class WorkoutTest < ActiveSupport::TestCase
   end
 
   test "workout is valid with required attributes" do
-    w = users(:one).workouts.create(
+    w = users(:james).workouts.create(
       trainer: "Test",
       warmup: "Test",
       body: "Test",
-      finish: "Test",
-      user_id: 10
+      finish: "Test"
     )
     assert w.valid?
   end
