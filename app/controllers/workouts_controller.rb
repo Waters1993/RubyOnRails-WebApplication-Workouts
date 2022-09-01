@@ -1,20 +1,24 @@
 class WorkoutsController < ApplicationController
     before_action :require_user_logged_in!
 
-    def public
-        @workouts = Workout.all
-        # render 'workouts/random', workout: @workout
+    # List workouts created by current user
+    def index
+        @workouts = Workout.belonging_to_user(session[:user_id])
     end
 
+    # Display a list of workouts with status set to public
+    def public
+        @workouts = Workout.find_public
+    end
+
+    # Chose a random workout from the list of public workouts
     def random
-        @workout = Workout.where(status: "public").order(Arel.sql('RANDOM()')).first
+        @workout = Workout.random
         render 'workouts/show', workout: @workout
     end
 
-    def index
-        @workouts = Workout.where("user_id = ?", session[:user_id])
-    end
-
+    
+    # Check if the workout is public or owned by the user before show action
     def show
         if Workout.find(params[:id]).private?
             unless @current_user.workouts.find_by_id(params[:id])
@@ -26,20 +30,9 @@ class WorkoutsController < ApplicationController
         else
             @workout = Workout.find_by_id(params[:id])
         end
-    end
+    end    
 
-    
-    # def show
-    #     if @current_user.workouts.find_by_id(params[:id])
-    #         @workout = @current_user.workouts.find_by_id(params[:id])
-    #     elsif unless Workout.find(params[:id]).private?
-    #         @workout = Workout.find(params[:id])
-    #     else
-    #         flash[:error] = "You don't have access to that item or it doesn't exist"
-    #         redirect_to workouts_path
-    #     end
-    # end
-
+    # Create a new record
     def new
         @workout = Workout.new
     end
@@ -55,6 +48,7 @@ class WorkoutsController < ApplicationController
         end
     end
 
+    # Edit an existing record
     def edit
         if @current_user.workouts.find_by_id(params[:id])
             @workout = @current_user.workouts.find_by_id(params[:id])
@@ -63,9 +57,6 @@ class WorkoutsController < ApplicationController
             redirect_to workout_path(Workout.find(params[:id]))
         end
     end
-    # def edit
-    #     @workout = Workout.find(params[:id])
-    # end
 
     def update
         @workout = Workout.find(params[:id])
@@ -78,6 +69,7 @@ class WorkoutsController < ApplicationController
         end
     end
 
+    # Destroy a record
     def destroy
         if @current_user.workouts.find_by_id(params[:id])
             @workout = @current_user.workouts.find_by_id(params[:id])
