@@ -11,4 +11,17 @@ class WorkoutsControllerTest < ActionDispatch::IntegrationTest
     }
     assert_redirected_to workouts_url
   end
+
+  test "should get new" do
+    post session_path,
+    params: {
+      email: 'testaccount@test.com',
+      password: 'test4'
+    }
+    get new_workout_url
+    assert_response :success
+    assert_template 'new'
+    assert_not_nil assigns(:workout)
+  end
+
 end
