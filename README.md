@@ -1,5 +1,5 @@
-# RoR Workouts App
-
+# Workouts App built using Ruby on Rails
+See live: https://myworkoutbuilder.herokuapp.com/
 ## TODO
 - Add url to README
 - Complete Testing Suite
