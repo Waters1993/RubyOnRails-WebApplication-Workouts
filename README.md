@@ -1,5 +1,5 @@
 # Workouts App built using Ruby on Rails
-See live: https://myworkoutbuilder.herokuapp.com/
+See live: https://everybodylifts.fly.dev/about
 ## TODO
 - Add url to README
 - Complete Testing Suite
